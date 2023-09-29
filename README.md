@@ -1,5 +1,8 @@
 # eobao-app-bdd
 
+### Install Cucumber plugin in IntelliJ
+<img src="docs/doc_4.png" alt="doc_4" width="400"/><p>
+
 ### A simple REST based spring boot app
 Has 2 REST end points
 #### Get all the account types
