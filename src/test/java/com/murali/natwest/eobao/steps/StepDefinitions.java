@@ -1,27 +1,52 @@
 package com.murali.natwest.eobao.steps;
 
+import com.murali.natwest.eobao.data.AccountTypes;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
-@CucumberContextConfiguration
 @Slf4j
 public class StepDefinitions {
-    @Given("the service is up")
+
+    @LocalServerPort
+    private String port;
+
+    private ResponseEntity<AccountTypes> accountTypes;
+
+    @Given("As a new customer")
     public void serviceIsUp() {
         log.info("serviceIsUp");
+        // No-op SpringIntegrationTest class boots up Spring boot application
     }
 
-    @When("I ask for all available accounts")
+    @When("I want to see all available accounts")
     public void getAllAccounts() {
         log.info("getAllAccounts");
+        accountTypes = new RestTemplate()
+                .getForEntity(serverUrl() + "/available", AccountTypes.class);
     }
 
-    @Then("then I should get A, B, C")
-    public void getResults() {
-        log.info("getResults");
+    @Then("then see a successful response")
+    public void getResults_1() {
+        log.info("getResults_1");
+        Assertions.assertEquals(HttpStatus.OK, accountTypes.getStatusCode());
+    }
+
+
+    @Then("I should get a total of 7 account types")
+    public void getResults_2() {
+        log.info("getResults_2");
+        Assertions.assertEquals(7, accountTypes.getBody().getAccountTypes().size());
+    }
+
+    private String serverUrl() {
+        return "http://localhost:" + port + "/app-open";
     }
 
 }
