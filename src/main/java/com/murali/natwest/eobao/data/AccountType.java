@@ -4,5 +4,11 @@ public enum AccountType {
     SAVINGS,
     CURRENT,
     PREMIER,
-    NO_FEE;
+    NO_FEE,
+
+    NON_STERLING,
+
+    BUSINESS,
+
+    OFFSHORE,
 }
