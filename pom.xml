@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.murali.natwest</groupId>
-	<artifactId>eobao-app-bdd</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>eobao-app-bdd</name>
-	<description>eobao-app-bdd</description>
-	<properties>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.murali.natwest</groupId>
+    <artifactId>eobao-app-bdd</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>eobao-app-bdd</name>
+    <description>eobao-app-bdd</description>
+    <properties>
         <java.version>17</java.version>
         <spring-boot-admin.version>3.0.2</spring-boot-admin.version>
         <spring-cloud.version>2022.0.2</spring-cloud.version>
@@ -23,11 +23,11 @@
         <jacoco.version>0.8.8</jacoco.version>
         <cucumber.version>6.10.3</cucumber.version>
     </properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <!--============ Web ============-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,7 +64,7 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
-		<!--========== Testing ==========-->
+        <!--========== Testing ==========-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -112,8 +112,8 @@
             <artifactId>spotless-maven-plugin</artifactId>
             <version>${spotless-plugin.version}</version>
         </dependency>
-	</dependencies>
-	    <dependencyManagement>
+    </dependencies>
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -147,13 +147,13 @@
         </dependencies>
     </dependencyManagement>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			            <plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
@@ -241,8 +241,8 @@
                             <include>src/main/java/**/*.java</include>
                             <include>src/test/java/**/*.java</include>
                         </includes>
-                        <importOrder />
-                        <removeUnusedImports />
+                        <importOrder/>
+                        <removeUnusedImports/>
                         <toggleOffOn/>
                         <trimTrailingWhitespace/>
                         <endWithNewline/>
@@ -254,7 +254,7 @@
                     </java>
                 </configuration>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
 </project>
