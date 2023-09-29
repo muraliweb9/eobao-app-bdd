@@ -29,7 +29,16 @@ public class StepDefinitions {
     public void getAllAccounts() {
         log.info("getAllAccounts");
         accountTypes = new RestTemplate()
-                .getForEntity(serverUrl() + "/available", AccountTypes.class);
+                .getForEntity(serverUrl() + "/available",
+                        AccountTypes.class);
+    }
+
+    @When("I want to see available accounts for {string} customers")
+    public void getAccountsFor(String customerType) {
+        log.info("getAccountsFor {}", customerType);
+        accountTypes = new RestTemplate()
+                .getForEntity(serverUrl() + "/available-for/" + customerType,
+                        AccountTypes.class);
     }
 
     @Then("then see a successful response")
@@ -39,14 +48,16 @@ public class StepDefinitions {
     }
 
 
-    @Then("I should get a total of 7 account types")
-    public void getResults_2() {
+    @Then("I should get a total of {int} account types")
+    public void getResults_2(int count) {
         log.info("getResults_2");
-        Assertions.assertEquals(7, accountTypes.getBody().getAccountTypes().size());
+        Assertions.assertEquals(count, accountTypes.getBody().getAccountTypes().size());
     }
 
     private String serverUrl() {
-        return "http://localhost:" + port + "/app-open";
+        String serverUrl = "http://localhost:" + port + "/app-open";
+        log.info("Server URL is {}", serverUrl);
+        return serverUrl;
     }
 
 }
