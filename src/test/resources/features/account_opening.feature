@@ -17,3 +17,8 @@ Feature: Get the eOBAO account types available
     When I want to see available accounts for "COMMERCIAL" customers
     Then then see a successful response
     And I should get a total of 3 account types
+
+  Scenario: Faile getting available accounts for UNKNOWN customers
+    Given As a new customer
+    When I want to see available accounts for "UNKNOWN" customers
+    Then then see a failure response
