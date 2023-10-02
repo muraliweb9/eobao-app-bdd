@@ -1,5 +1,12 @@
 # eobao-app-bdd
 
+### BDD Example Mapping
+https://cucumber.io/blog/bdd/example-mapping-introduction/
+
+### SAFe and BDD
+https://scaledagileframework.com/story
+<img src="docs/doc_6.png" alt="doc_6" width="600"/><p>
+
 ### Install Cucumber plugin in IntelliJ
 <img src="docs/doc_4.png" alt="doc_4" width="600"/><p>
 
